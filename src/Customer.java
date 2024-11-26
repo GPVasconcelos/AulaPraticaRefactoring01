@@ -48,9 +48,9 @@ public class Customer {
       return result;
    }
 
-   private double amountFor(Rental each) {
+   private double amountFor(Rental aRental) {
       double thisAmount = 0;
-      switch (each.getMovie().getPriceCode()) {
+      switch (each.getMovie().getPriceCode()) {git
          case Movie.REGULAR:
             thisAmount += 2;
             if (each.getDaysRented() > 2)
