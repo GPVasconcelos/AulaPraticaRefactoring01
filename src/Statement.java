@@ -1,18 +1,19 @@
-public abstract class Statement {
-    public String value(Customer aCustomer) {
-        String result = headerString(aCustomer);
-
-        for (Rental each : aCustomer.getRentals()) {
-            result += rentalString(each);
-        }
-
-        result += footerString(aCustomer);
-        return result;
+public class TextStatement extends Statement {
+    @Override
+    protected String headerString(Customer aCustomer) {
+        return "Rental Record for " + aCustomer.getName() + "\n";
     }
 
-    protected abstract String headerString(Customer aCustomer);
+    @Override
+    protected String rentalString(Rental aRental) {
+        return "\t" + aRental.getMovie().getTitle() + "\t" +
+                String.valueOf(aRental.getCharge()) + "\n";
+    }
 
-    protected abstract String rentalString(Rental aRental);
-
-    protected abstract String footerString(Customer aCustomer);
+    @Override
+    protected String footerString(Customer aCustomer) {
+        return "Amount owed is " + String.valueOf(aCustomer.getTotalCharge()) + "\n" +
+                "You earned " + String.valueOf(aCustomer.getTotalFrequentRenterPoints()) +
+                " frequent renter points";
+    }
 }

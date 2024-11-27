@@ -7,14 +7,14 @@ public class HtmlStatement extends Statement {
     @Override
     protected String rentalString(Rental aRental) {
         return aRental.getMovie().getTitle() + ": " +
-               String.valueOf(aRental.getCharge()) + "<BR>\n";
+                String.valueOf(aRental.getCharge()) + "<BR>\n";
     }
 
     @Override
     protected String footerString(Customer aCustomer) {
         return "<P>You owe <EM>" + String.valueOf(aCustomer.getTotalCharge()) + "</EM><P>\n" +
-               "On this rental you earned <EM>" +
-               String.valueOf(aCustomer.getTotalFrequentRenterPoints()) +
-               "</EM> frequent renter points<P>";
+                "On this rental you earned <EM>" +
+                String.valueOf(aCustomer.getTotalFrequentRenterPoints()) +
+                "</EM> frequent renter points<P>";
     }
 }
