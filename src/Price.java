@@ -1,14 +1,10 @@
-public class NewReleasePrice extends Price {
-   public int getPriceCode() {
-      return Movie.NEW_RELEASE;
-   }
+public abstract class Price {
+   public abstract int getPriceCode();
 
-   public double getCharge(int daysRented) {
-      return daysRented * 3;
-   }
+   public abstract double getCharge(int daysRented);
 
-   @Override
+   // Versão genérica de pontos de fidelidade
    public int getFrequentRenterPoints(int daysRented) {
-      return (daysRented > 1) ? 2 : 1;
+      return 1; // Padrão: 1 ponto
    }
 }
