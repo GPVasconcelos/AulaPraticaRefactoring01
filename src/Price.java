@@ -1,9 +1,14 @@
-public abstract class Price {
-   public abstract int getPriceCode();
+public class NewReleasePrice extends Price {
+   public int getPriceCode() {
+      return Movie.NEW_RELEASE;
+   }
 
-   public abstract double getCharge(int daysRented);
+   public double getCharge(int daysRented) {
+      return daysRented * 3;
+   }
 
+   @Override
    public int getFrequentRenterPoints(int daysRented) {
-      return 1;
+      return (daysRented > 1) ? 2 : 1;
    }
 }
